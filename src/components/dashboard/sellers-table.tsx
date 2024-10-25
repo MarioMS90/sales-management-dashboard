@@ -6,47 +6,17 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { fetchSellers } from '@/lib/data';
 import Image from 'next/image';
 
-const sellers = [
-  {
-    id: 'INV001',
-    name: 'Liam Johnson',
-    email: 'liam.johnson@email.com',
-    avatar: '/avatars/01.png',
-  },
-  {
-    id: 'INV002',
-    name: 'Emma Wilson',
-    email: 'emma.wilson@email.com',
-    avatar: '/avatars/02.png',
-  },
-  {
-    id: 'INV003',
-    name: 'Noah Brown',
-    email: 'noah.brown@email.com',
-    avatar: '/avatars/03.png',
-  },
-  {
-    id: 'INV004',
-    name: 'Sophia Martinez',
-    email: 'sophia.martinez@email.com',
-    avatar: '/avatars/04.png',
-  },
-  {
-    id: 'INV005',
-    name: 'James Garcia',
-    email: 'james.garcia@email.com',
-    avatar: '/avatars/05.png',
-  },
-];
+export default async function SellersTable() {
+  const sellers = await fetchSellers();
 
-export default function SellersTable() {
   return (
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead className="w-[100px]">Id</TableHead>
+          <TableHead className="w-[100px]">Seller ID</TableHead>
           <TableHead>Avatar</TableHead>
           <TableHead>Name</TableHead>
           <TableHead className="text-right">Email</TableHead>

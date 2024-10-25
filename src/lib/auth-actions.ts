@@ -3,9 +3,17 @@
 import { SignUpUser } from '@/schemas/auth-schemas';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
-import { SignUpState } from '@/types/app-types';
 import bcrypt from 'bcrypt';
 import { db } from './kysely';
+
+export type SignUpState = {
+  errors?: {
+    name?: string[];
+    email?: string[];
+    password?: string[];
+  };
+  message: string | null;
+};
 
 export async function signInAction(
   prevState: string | undefined,

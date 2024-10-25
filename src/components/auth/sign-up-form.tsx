@@ -1,8 +1,8 @@
 'use client';
 
-import { signUpAction } from '@/lib/auth-actions';
+import { signUpAction, SignUpState } from '@/lib/auth-actions';
 import { useState, useActionState } from 'react';
-import { SignUpState } from '@/types/app-types';
+
 import { Button } from '../ui/button';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
