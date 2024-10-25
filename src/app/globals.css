@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/*:root {
-  color-scheme: light dark;
-  --color-primary: #1c3144;
-  --color-secondary: #ff9f1c;
-  --color-black-1: #333333;
-  --color-main-background: #f2f5fa;
-  --color-main-background-dark: linear-gradient(to bottom, #2e547d, #1c3144);
-
-  background: var(--color-main-background);
-
-  &.dark body {
-    background: var(--color-main-background-dark);
-    color: white;
-  }
-}*/
-
 @layer components {
   .center-xy {
     @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform;
@@ -59,6 +43,11 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --app-logo-color: 204 43% 18%;
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -85,6 +74,11 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --app-logo-color: 0, 0%, 100%;
   }
 }
 

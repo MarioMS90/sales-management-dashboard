@@ -1,15 +1,9 @@
 import { sql } from 'kysely';
 import { db } from '@/lib/kysely';
 import bcrypt from 'bcrypt';
+import { user } from '@/lib/placeholder-data';
 
 async function seedUser() {
-  const user = {
-    id: 'f6829b1e-68cb-4a70-9e1a-fd4acb13e43d',
-    name: 'User',
-    email: 'user@gmail.com',
-    password: '123456',
-  };
-
   await db.schema.dropTable('users').ifExists().execute();
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`.execute(db);
   await db.schema

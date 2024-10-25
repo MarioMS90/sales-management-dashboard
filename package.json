@@ -9,18 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "2.1.5",
+    "@radix-ui/react-dropdown-menu": "2.1.2",
     "@radix-ui/react-label": "2.1.0",
     "@radix-ui/react-slot": "1.1.0",
-    "@vercel/postgres": "^0.10.0",
+    "@vercel/postgres": "0.10.0",
     "@vercel/postgres-kysely": "^0.10.0",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "kysely": "^0.27.4",
+    "clsx": "2.1.1",
+    "kysely": "0.27.4",
     "lucide-react": "0.453.0",
     "next": "15.0.0",
     "next-auth": "5.0.0-beta.25",
+    "next-themes": "^0.3.0",
     "react": "19.0.0-rc-65a56d0e-20241020",
     "react-dom": "19.0.0-rc-65a56d0e-20241020",
+    "react-is": "19.0.0-beta-26f2496093-20240514",
+    "recharts": "^2.13.0",
     "tailwind-merge": "2.5.4",
     "zod": "3.23.8"
   },
@@ -48,7 +53,8 @@
   "pnpm": {
     "overrides": {
       "@types/react": "npm:types-react@19.0.0-rc.1",
-      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+      "react-is": "19.0.0-beta-26f2496093-20240514"
     }
   }
 }

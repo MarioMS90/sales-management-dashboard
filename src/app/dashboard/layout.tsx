@@ -1,8 +1,4 @@
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Login',
-};
+import Sidebar from '@/components/dashboard/sidebar';
 
 export default function DashboardLayout({
   children,
@@ -10,8 +6,9 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="px-5">
-      <section className="flex h-screen items-center justify-center">{children}</section>
-    </main>
+    <div className="flex h-screen grow overflow-y-auto">
+      <Sidebar />
+      <main className="grow overflow-y-auto bg-background p-8 pb-20">{children}</main>
+    </div>
   );
 }

@@ -1,7 +1,6 @@
 import SignInForm from '@/components/auth/sign-in-form';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import AppIcon from '@/components/icons/app';
 import {
   Card,
   CardContent,
@@ -10,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { AppLogo } from '@/components/app-logo';
 
 export const metadata: Metadata = {
   title: 'Sign In',
@@ -20,12 +20,11 @@ export default function SignInPage() {
     <Card className="w-full md:w-[400px]">
       <CardHeader>
         <CardTitle className="flex items-center justify-center gap-2">
-          <AppIcon height="28px" />
-          <span className="text-[#1c3144]">Axiome</span>
+          <AppLogo />
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <CardDescription className="text-center">Sign in to continue</CardDescription>
+        <CardDescription className="pb-2 text-center">Sign in to continue</CardDescription>
         <SignInForm />
       </CardContent>
       <CardFooter className="flex justify-center">
