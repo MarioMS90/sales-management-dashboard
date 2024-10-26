@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/table';
 import { fetchInvoices } from '@/lib/data';
 import { formatDateToString } from '@/lib/utils';
+import Price from './price';
 
 export default async function InvoicesTable() {
   const invoices = await fetchInvoices();
@@ -25,14 +26,16 @@ export default async function InvoicesTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {invoices.map(({ id, status, amount, paymentMethod, sellerId, createdAt }) => (
+        {invoices.map(({ id, status, amount, paymentMethod, sellerName, createdAt }) => (
           <TableRow key={id}>
             <TableCell className="font-medium">{id}</TableCell>
             <TableCell>{status}</TableCell>
             <TableCell>{paymentMethod}</TableCell>
-            <TableCell>{sellerId}</TableCell>
+            <TableCell>{sellerName}</TableCell>
             <TableCell>{formatDateToString(createdAt)}</TableCell>
-            <TableCell className="text-right">{`${amount}€`}</TableCell>
+            <TableCell className="text-right">
+              <Price amount={amount} />
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>

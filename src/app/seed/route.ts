@@ -50,7 +50,7 @@ async function seedInvoices() {
     .createTable('invoices')
     .addColumn('id', 'serial', col => col.primaryKey())
     .addColumn('status', sql`payment_status`, col => col.notNull())
-    .addColumn('amount', 'integer', col => col.notNull())
+    .addColumn('amount', 'decimal', col => col.notNull())
     .addColumn('paymentMethod', sql`payment_method`, col => col.notNull())
     .addColumn('sellerId', 'serial', col =>
       col.references('sellers.id').onDelete('cascade').notNull(),

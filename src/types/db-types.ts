@@ -18,6 +18,7 @@ export type Invoice = {
   amount: number;
   paymentMethod: InvoicePaymentMethod;
   sellerId: string;
+  sellerName?: string;
   createdAt: Date;
 };
 

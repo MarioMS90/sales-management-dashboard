@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import RevenueChart from '@/components/dashboard/revenue-chart';
+import SalesOverview from '@/components/dashboard/sales-overview';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import RecentSales from '@/components/dashboard/recent-sales';
+import SellersOverview from '@/components/dashboard/sellers-overview';
 import CardsSummary from '@/components/dashboard/cards-summary';
 
 export const metadata: Metadata = {
@@ -20,19 +20,19 @@ export default async function DashboardPage() {
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-7">
         <Card className="col-span-1 lg:col-span-4">
           <CardHeader>
-            <CardTitle>Sales</CardTitle>
+            <CardTitle>Sales Overview - Last Year</CardTitle>
           </CardHeader>
           <CardContent className="pl-2">
-            <RevenueChart />
+            <SalesOverview />
           </CardContent>
         </Card>
 
         <Card className="col-span-1 lg:col-span-3">
           <CardHeader>
-            <CardTitle>Sales Overview - Last Month</CardTitle>
+            <CardTitle>Top Sellers Overview - Last Year</CardTitle>
           </CardHeader>
           <CardContent className="pl-2">
-            <RecentSales />
+            <SellersOverview />
           </CardContent>
         </Card>
       </div>

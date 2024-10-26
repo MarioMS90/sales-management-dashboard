@@ -1,4 +1,4 @@
-import { getInvoices } from './utils';
+import { generateInvoices, generateSellers } from './utils';
 
 const user = {
   name: 'User',
@@ -6,39 +6,8 @@ const user = {
   password: '123456',
 };
 
-const sellers = [
-  {
-    id: '1000',
-    name: 'Liam Johnson',
-    email: 'liam.johnson@email.com',
-    avatar: '/avatars/01.png',
-  },
-  {
-    id: '1001',
-    name: 'Emma Wilson',
-    email: 'emma.wilson@email.com',
-    avatar: '/avatars/02.png',
-  },
-  {
-    id: '1002',
-    name: 'Noah Brown',
-    email: 'noah.brown@email.com',
-    avatar: '/avatars/03.png',
-  },
-  {
-    id: '1003',
-    name: 'Sophia Martinez',
-    email: 'sophia.martinez@email.com',
-    avatar: '/avatars/04.png',
-  },
-  {
-    id: '1004',
-    name: 'James Garcia',
-    email: 'james.garcia@email.com',
-    avatar: '/avatars/05.png',
-  },
-];
+const sellers = generateSellers(30);
 
-const invoices = getInvoices(sellers);
+const invoices = generateInvoices(1200, sellers);
 
 export { user, sellers, invoices };
