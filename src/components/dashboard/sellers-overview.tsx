@@ -4,13 +4,13 @@ import Price from './price';
 
 export default async function RecentSales() {
   const lastYear = new Date().getFullYear() - 1;
-  const sellers = await fetchSellersWithTotalSales(
-    [
+  const sellers = await fetchSellersWithTotalSales({
+    filters: [
       { lhs: 'invoices.createdAt', op: '>=', rhs: new Date(lastYear, 0, 1) },
       { lhs: 'invoices.createdAt', op: '<=', rhs: new Date(lastYear, 11, 31, 23, 59, 59) },
     ],
-    5,
-  );
+    limit: 5,
+  });
 
   return (
     <div className="space-y-8 px-4">

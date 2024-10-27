@@ -57,7 +57,7 @@ async function seedInvoices() {
     )
     .addColumn('createdAt', 'timestamp', col => col.notNull())
     .execute();
-  await sql`ALTER SEQUENCE invoices_id_seq RESTART WITH 1000`.execute(db);
+  await sql`ALTER SEQUENCE invoices_id_seq RESTART WITH 3000`.execute(db);
 
   await db.insertInto('invoices').values(invoices).execute();
 }

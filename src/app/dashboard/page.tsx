@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Dashboard',
 };
 
-export default async function DashboardPage() {
+export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-xl font-bold md:text-2xl">Dashboard</h1>

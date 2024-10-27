@@ -6,9 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import Price from './price';
 
 export default async function CardsSummary() {
-  const invoices = await fetchInvoices([
-    { lhs: 'invoices.status', op: '=', rhs: InvoiceStatus.Paid },
-  ]);
+  const invoices = await fetchInvoices({
+    filters: [{ lhs: 'invoices.status', op: '=', rhs: InvoiceStatus.Paid }],
+  });
   const sellers = await fetchSellersWithTotalSales();
   const { name: topSellerName } = sellers[0];
 

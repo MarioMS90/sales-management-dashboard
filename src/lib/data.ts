@@ -15,11 +15,25 @@ type QueryFilter<DB, TB extends keyof DB> = {
   rhs: OperandValueExpressionOrList<DB, TB, ReferenceExpression<DB, TB>>;
 };
 
-export async function fetchSellers(): Promise<Seller[]> {
+export async function fetchSellers({
+  offset,
+  limit,
+}: {
+  offset?: number;
+  limit?: number;
+} = {}): Promise<Seller[]> {
   try {
-    const sellers = await db.selectFrom('sellers').selectAll().execute();
+    let query = db.selectFrom('sellers').selectAll();
 
-    return sellers;
+    if (limit) {
+      query = query.limit(limit);
+    }
+
+    if (offset) {
+      query = query.offset(offset);
+    }
+
+    return await query.execute();
   } catch (error) {
     throw new Error(`Failed to fetch sellers. ${error}`);
   }
@@ -27,15 +41,29 @@ export async function fetchSellers(): Promise<Seller[]> {
 
 export type InvoiceWithSellerName = Invoice & { sellerName: string };
 
-export async function fetchInvoices(
-  filters: QueryFilter<Database, 'invoices' | 'sellers'>[] = [],
-): Promise<InvoiceWithSellerName[]> {
+export async function fetchInvoices({
+  filters = [],
+  offset,
+  limit,
+}: {
+  filters?: QueryFilter<Database, 'invoices' | 'sellers'>[];
+  offset?: number;
+  limit?: number;
+} = {}): Promise<InvoiceWithSellerName[]> {
   try {
     let query = db
       .selectFrom('invoices')
       .leftJoin('sellers', 'invoices.sellerId', 'sellers.id')
       .selectAll('invoices')
       .select('sellers.name as sellerName');
+
+    if (limit) {
+      query = query.limit(limit);
+    }
+
+    if (offset) {
+      query = query.offset(offset);
+    }
 
     filters.forEach(({ lhs, op, rhs }) => {
       query = query.where(lhs, op, rhs);
@@ -49,10 +77,13 @@ export async function fetchInvoices(
 
 export type SellerWithTotal = Seller & { totalSales: number };
 
-export async function fetchSellersWithTotalSales(
-  filters: QueryFilter<Database, 'sellers' | 'invoices'>[] = [],
-  limit?: number,
-): Promise<SellerWithTotal[]> {
+export async function fetchSellersWithTotalSales({
+  filters = [],
+  limit,
+}: {
+  filters?: QueryFilter<Database, 'sellers' | 'invoices'>[];
+  limit?: number;
+} = {}): Promise<SellerWithTotal[]> {
   try {
     let query = db
       .selectFrom('sellers')
@@ -78,9 +109,11 @@ export async function fetchSellersWithTotalSales(
 }
 
 export type TotalSalesByMonth = { month: string; total: number };
-export async function fetchSalesByMonth(
-  filters: QueryFilter<Database, 'invoices'>[] = [],
-): Promise<TotalSalesByMonth[]> {
+export async function fetchSalesByMonth({
+  filters = [],
+}: {
+  filters?: QueryFilter<Database, 'invoices'>[];
+} = {}): Promise<TotalSalesByMonth[]> {
   try {
     let query = db
       .selectFrom('invoices')

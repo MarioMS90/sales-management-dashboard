@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Table,
   TableBody,
@@ -6,12 +8,27 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { fetchInvoices } from '@/lib/data';
 import { formatDateToString } from '@/lib/utils';
+import { useRef } from 'react';
+import { fetchInvoicesAction } from '@/lib/actions';
+import { InvoiceWithSellerName } from '@/lib/data';
+import useInfiniteScroll from '@/hooks/useInfiniteScroll';
 import Price from './price';
 
-export default async function InvoicesTable() {
-  const invoices = await fetchInvoices();
+export default function InvoicesTable({
+  initialInvoices,
+  limit,
+}: {
+  initialInvoices: InvoiceWithSellerName[];
+  limit: number;
+}) {
+  const ref = useRef(null);
+  const invoices = useInfiniteScroll<InvoiceWithSellerName>({
+    fetchDataAction: fetchInvoicesAction,
+    initialData: initialInvoices,
+    limit,
+    refToObserve: ref,
+  });
 
   return (
     <Table>
@@ -26,8 +43,8 @@ export default async function InvoicesTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {invoices.map(({ id, status, amount, paymentMethod, sellerName, createdAt }) => (
-          <TableRow key={id}>
+        {invoices.map(({ id, status, amount, paymentMethod, sellerName, createdAt }, index) => (
+          <TableRow key={id} ref={index === invoices.length - 10 ? ref : null}>
             <TableCell className="font-medium">{id}</TableCell>
             <TableCell>{status}</TableCell>
             <TableCell>{paymentMethod}</TableCell>

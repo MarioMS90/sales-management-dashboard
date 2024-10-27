@@ -19,21 +19,19 @@ export default function Sidebar() {
         <AppLogo />
       </Link>
       <NavLinks />
-      <form
-        action={async () => {
+      <button
+        className="mt-4 w-full py-2 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+        type="button"
+        onClick={async () => {
           'use server';
 
           await signOut({ redirectTo: '/sign-in' });
         }}>
-        <button
-          type="submit"
-          className="mt-4 w-full py-2 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
-          <span className="flex items-center gap-3 px-4">
-            <PowerIcon className="w-6" />
-            <div className="hidden md:block">Sign Out</div>
-          </span>
-        </button>
-      </form>
+        <span className="flex items-center gap-3 px-4">
+          <PowerIcon className="w-6" />
+          <div className="hidden md:block">Sign Out</div>
+        </span>
+      </button>
     </nav>
   );
 }

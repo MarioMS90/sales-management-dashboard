@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Table,
   TableBody,
@@ -6,11 +8,26 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { fetchSellers } from '@/lib/data';
+import useInfiniteScroll from '@/hooks/useInfiniteScroll';
+import { fetchSellersAction } from '@/lib/actions';
+import { Seller } from '@/types/db-types';
 import Image from 'next/image';
+import { useRef } from 'react';
 
-export default async function SellersTable() {
-  const sellers = await fetchSellers();
+export default function SellersTable({
+  initialSellers,
+  limit,
+}: {
+  initialSellers: Seller[];
+  limit: number;
+}) {
+  const ref = useRef(null);
+  const sellers = useInfiniteScroll<Seller>({
+    fetchDataAction: fetchSellersAction,
+    initialData: initialSellers,
+    limit,
+    refToObserve: ref,
+  });
 
   return (
     <Table>
@@ -23,8 +40,8 @@ export default async function SellersTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {sellers.map(({ id, name, email, avatar }) => (
-          <TableRow key={id}>
+        {sellers.map(({ id, name, email, avatar }, index) => (
+          <TableRow key={id} ref={index === sellers.length - 10 ? ref : null}>
             <TableCell className="font-medium">{id}</TableCell>
             <TableCell>
               <Image
