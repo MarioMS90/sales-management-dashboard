@@ -23,7 +23,7 @@ export default function InvoicesTable({
   limit: number;
 }) {
   const ref = useRef(null);
-  const invoices = useInfiniteScroll<InvoiceWithSellerName>({
+  const [invoices] = useInfiniteScroll<InvoiceWithSellerName>({
     fetchDataAction: fetchInvoicesAction,
     initialData: initialInvoices,
     limit,

@@ -22,7 +22,7 @@ export default function SellersTable({
   limit: number;
 }) {
   const ref = useRef(null);
-  const sellers = useInfiniteScroll<Seller>({
+  const [sellers] = useInfiniteScroll<Seller>({
     fetchDataAction: fetchSellersAction,
     initialData: initialSellers,
     limit,

@@ -13,29 +13,41 @@ export default function useInfiniteScroll<T>({
   limit: number;
   refToObserve: React.RefObject<HTMLElement | null>;
 }) {
-  const [{ data, offset }, setData] = useState({
+  const [{ data, offset }, setData] = useState<{
+    data: T[];
+    offset: number;
+  }>({
     data: initialData,
     offset: limit,
   });
   const [hasMoreData, setHasMoreData] = useState(true);
 
   const handleIntersection = useCallback((): void => {
-    fetchDataAction({ offset, limit }).then(newData => {
-      if (newData.length === 0) {
-        setHasMoreData(false);
-        return;
-      }
+    fetchDataAction({ offset, limit })
+      .then(newData => {
+        if (newData.length === 0) {
+          setHasMoreData(false);
+          return;
+        }
 
-      setData(prev => ({
-        data: [...prev.data, ...newData],
-        offset: prev.offset + limit,
-      }));
-    });
+        setData(prev => ({
+          data: [...prev.data, ...newData],
+          offset: prev.offset + limit,
+        }));
+      })
+      .catch(error => {
+        setHasMoreData(false);
+        throw error;
+      });
   }, [fetchDataAction, limit, offset]);
 
   useEffect(() => {
     if (!hasMoreData) {
       return undefined;
+    }
+
+    if (limit <= 0) {
+      throw new Error('limit should be greater than 0');
     }
 
     const intersectionCallback = (entries: IntersectionObserverEntry[]): void => {
@@ -59,7 +71,7 @@ export default function useInfiniteScroll<T>({
     return () => {
       observer.disconnect();
     };
-  }, [refToObserve, handleIntersection, hasMoreData]);
+  }, [refToObserve, limit, handleIntersection, hasMoreData]);
 
-  return data;
+  return [data, hasMoreData] as const;
 }
