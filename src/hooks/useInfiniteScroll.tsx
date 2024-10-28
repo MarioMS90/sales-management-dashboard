@@ -23,7 +23,6 @@ export default function useInfiniteScroll<T>({
   const [hasMoreData, setHasMoreData] = useState(true);
 
   const handleIntersection = useCallback((): void => {
-    console.log('Intersection detected');
     fetchDataAction({ offset, limit })
       .then(newData => {
         if (newData.length === 0) {
