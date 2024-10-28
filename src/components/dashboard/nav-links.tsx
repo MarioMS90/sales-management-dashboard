@@ -21,7 +21,7 @@ export default function NavLinks() {
   return (
     <ul className="pt-4">
       {links.map(link => (
-        <Link key={link.name} href={link.href}>
+        <Link key={link.name} href={link.href} aria-label={link.name}>
           <div
             className={clsx('py-2 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground', {
               'bg-sidebar-accent text-sidebar-accent-foreground': pathname === link.href,

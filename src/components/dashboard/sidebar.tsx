@@ -15,13 +15,15 @@ export default function Sidebar() {
       `}>
       <Link
         className="flex items-center gap-2 px-4 pt-6 [&>div>span]:hidden md:[&>div>span]:block"
-        href="/dashboard">
+        href="/dashboard"
+        aria-label="Dashboard">
         <AppLogo />
       </Link>
       <NavLinks />
       <button
         className="mt-4 w-full py-2 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
         type="button"
+        aria-label="Sign Out"
         onClick={async () => {
           'use server';
 
