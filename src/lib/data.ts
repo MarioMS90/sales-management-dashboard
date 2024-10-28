@@ -40,7 +40,6 @@ export async function fetchSellers({
 }
 
 export type InvoiceWithSellerName = Invoice & { sellerName: string };
-
 export async function fetchInvoices({
   filters = [],
   offset,
@@ -76,7 +75,6 @@ export async function fetchInvoices({
 }
 
 export type SellerWithTotal = Seller & { totalSales: number };
-
 export async function fetchSellersWithTotalSales({
   filters = [],
   limit,

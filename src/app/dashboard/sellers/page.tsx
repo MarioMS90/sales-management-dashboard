@@ -7,14 +7,15 @@ export const metadata: Metadata = {
 };
 
 export default async function SellersPage() {
-  const INVOICES_LIMIT = 10;
-  const sellers = await fetchSellers({ limit: INVOICES_LIMIT });
+  const SELLERS_LIMIT_PER_QUERY = 10;
+
+  const sellers = await fetchSellers({ limit: SELLERS_LIMIT_PER_QUERY });
 
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-xl font-bold md:text-2xl">Sellers</h1>
 
-      <SellersTable initialSellers={sellers} limit={INVOICES_LIMIT} />
+      <SellersTable initialSellers={sellers} limit={SELLERS_LIMIT_PER_QUERY} />
     </div>
   );
 }
