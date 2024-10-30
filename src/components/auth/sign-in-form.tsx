@@ -25,7 +25,7 @@ export default function SignInForm() {
             <p className="mb-2 text-sm text-red-500">{errorMessage}</p>
           </div>
         )}
-        <Button type="submit" aria-disabled={isPending}>
+        <Button type="submit" aria-disabled={isPending} disabled={isPending}>
           Sign In
         </Button>
       </div>

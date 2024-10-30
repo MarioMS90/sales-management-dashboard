@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import useInfiniteScroll from '@/hooks/useInfiniteScroll';
+import useScrollPagination from '@/hooks/useScrollPagination';
 import { fetchSellersAction } from '@/lib/actions';
 import { Seller } from '@/types/db-types';
 import Image from 'next/image';
@@ -22,7 +22,7 @@ export default function SellersTable({
   limit: number;
 }) {
   const ref = useRef(null);
-  const [sellers] = useInfiniteScroll<Seller>({
+  const [sellers] = useScrollPagination<Seller>({
     fetchDataAction: fetchSellersAction,
     initialData: initialSellers,
     limit,
@@ -46,7 +46,7 @@ export default function SellersTable({
             <TableCell>
               <Image
                 src={avatar}
-                alt="Avatar"
+                alt={`Avatar of ${name}`}
                 className="mr-8 rounded-full"
                 width={34}
                 height={34}

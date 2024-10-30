@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
-export default function useInfiniteScroll<T>({
+export default function useScrollPagination<T>({
   fetchDataAction,
   initialData,
   limit,

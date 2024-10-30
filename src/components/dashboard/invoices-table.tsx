@@ -12,7 +12,7 @@ import { formatDateToString } from '@/lib/utils';
 import { useRef } from 'react';
 import { fetchInvoicesAction } from '@/lib/actions';
 import { InvoiceWithSellerName } from '@/lib/data';
-import useInfiniteScroll from '@/hooks/useInfiniteScroll';
+import useScrollPagination from '@/hooks/useScrollPagination';
 import Price from './price';
 
 export default function InvoicesTable({
@@ -23,7 +23,7 @@ export default function InvoicesTable({
   limit: number;
 }) {
   const ref = useRef(null);
-  const [invoices] = useInfiniteScroll<InvoiceWithSellerName>({
+  const [invoices] = useScrollPagination<InvoiceWithSellerName>({
     fetchDataAction: fetchInvoicesAction,
     initialData: initialInvoices,
     limit,
