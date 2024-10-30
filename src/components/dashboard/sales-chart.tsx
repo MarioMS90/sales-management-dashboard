@@ -4,7 +4,6 @@ import { TotalSalesByMonth } from '@/lib/data';
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
 export default function SalesChart({ sales }: { sales: TotalSalesByMonth[] }) {
-  console.log('sales', sales);
   return (
     <ResponsiveContainer width="100%" height={350}>
       <BarChart data={sales}>

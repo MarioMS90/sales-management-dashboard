@@ -26,50 +26,42 @@ export default async function CardsSummary() {
     'amount',
   );
 
+  const cards = [
+    {
+      title: 'Total Sales',
+      icon: <CurrencyEuroIcon className="size-5 text-muted-foreground" />,
+      content: <Price amount={totalSales} />,
+    },
+    {
+      title: 'Total Sales - Last Year',
+      icon: <CurrencyEuroIcon className="size-5 text-muted-foreground" />,
+      content: <Price amount={totalSalesLastYear} />,
+    },
+    {
+      title: 'Total Sales - Last Month',
+      icon: <CurrencyEuroIcon className="size-5 text-muted-foreground" />,
+      content: <Price amount={totalSalesLastMonth} />,
+    },
+    {
+      title: 'Top Salesperson',
+      icon: <UserIcon className="size-5 text-muted-foreground" />,
+      content: topSellerName,
+    },
+  ];
+
   return (
     <>
-      <Card className="col-span-2 lg:col-span-1">
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Total Sales</CardTitle>
-          <CurrencyEuroIcon className="size-5 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">
-            <Price amount={totalSales} />
-          </div>
-        </CardContent>
-      </Card>
-      <Card className="col-span-2 lg:col-span-1">
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Total Sales - Last Year</CardTitle>
-          <CurrencyEuroIcon className="size-5 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">
-            <Price amount={totalSalesLastYear} />
-          </div>
-        </CardContent>
-      </Card>
-      <Card className="col-span-2 lg:col-span-1">
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Total Sales - Last Month</CardTitle>
-          <CurrencyEuroIcon className="size-5 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">
-            <Price amount={totalSalesLastMonth} />
-          </div>
-        </CardContent>
-      </Card>
-      <Card className="col-span-2 lg:col-span-1">
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Top Salesperson</CardTitle>
-          <UserIcon className="size-5 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">{topSellerName}</div>
-        </CardContent>
-      </Card>
+      {cards.map(card => (
+        <Card key={card.title} className="card col-span-2 lg:col-span-1">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">{card.title}</CardTitle>
+            {card.icon}
+          </CardHeader>
+          <CardContent>
+            <div className="card-content text-2xl font-bold">{card.content}</div>
+          </CardContent>
+        </Card>
+      ))}
     </>
   );
 }

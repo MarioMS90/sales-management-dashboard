@@ -30,7 +30,7 @@ export default function SellersTable({
   });
 
   return (
-    <Table>
+    <Table className="sellers-table">
       <TableHeader>
         <TableRow>
           <TableHead className="w-[100px]">Seller ID</TableHead>

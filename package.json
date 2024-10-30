@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@heroicons/react": "2.1.5",
@@ -26,7 +27,7 @@
     "next-themes": "^0.3.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-is": "^18.3.1",
+    "react-is": "19.0.0-beta-26f2496093-20240514",
     "recharts": "^2.13.2",
     "tailwind-merge": "2.5.4",
     "zod": "3.23.8"
@@ -39,8 +40,8 @@
     "@types/bcrypt": "^5.0.2",
     "@types/jest": "^29.5.14",
     "@types/node": "20",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "7.0.0",
     "@typescript-eslint/parser": "7.0.0",
     "bcrypt": "5.1.1",
@@ -60,5 +61,10 @@
     "tailwindcss-animate": "1.0.7",
     "ts-node": "^10.9.2",
     "typescript": "5"
+  },
+  "pnpm": {
+    "overrides": {
+      "react-is": "19.0.0-beta-26f2496093-20240514"
+    }
   }
 }

@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  react-is: 19.0.0-beta-26f2496093-20240514
+
 importers:
 
   .:
@@ -54,8 +57,8 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       react-is:
-        specifier: ^18.3.1
-        version: 18.3.1
+        specifier: 19.0.0-beta-26f2496093-20240514
+        version: 19.0.0-beta-26f2496093-20240514
       recharts:
         specifier: ^2.13.2
         version: 2.13.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -88,10 +91,10 @@ importers:
         specifier: '20'
         version: 20.17.3
       '@types/react':
-        specifier: ^18.0.0
+        specifier: ^18.3.12
         version: 18.3.12
       '@types/react-dom':
-        specifier: ^18.0.0
+        specifier: ^18.3.1
         version: 18.3.1
       '@typescript-eslint/eslint-plugin':
         specifier: 7.0.0
@@ -3456,14 +3459,8 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
-  react-is@16.13.1:
-    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
-
-  react-is@17.0.2:
-    resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
-
-  react-is@18.3.1:
-    resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
+  react-is@19.0.0-beta-26f2496093-20240514:
+    resolution: {integrity: sha512-w5VsWOdq06F29cxg6oQy+GcGbLEd7gFOkkN9BLHWNnPIUuIo86/rGYbReTdnx5PxkHggTiFGZI+9Zy2nbRyAkQ==}
 
   react-remove-scroll-bar@2.3.6:
     resolution: {integrity: sha512-DtSYaao4mBmX+HDo5YWYdBWQwYIQQshUV/dVxFxK+KM26Wjwp1gZ6rv6OC3oujI6Bfu6Xyg3TwK533AQutsn/g==}
@@ -7862,13 +7859,13 @@ snapshots:
     dependencies:
       ansi-regex: 5.0.1
       ansi-styles: 5.2.0
-      react-is: 17.0.2
+      react-is: 19.0.0-beta-26f2496093-20240514
 
   pretty-format@29.7.0:
     dependencies:
       '@jest/schemas': 29.6.3
       ansi-styles: 5.2.0
-      react-is: 18.3.1
+      react-is: 19.0.0-beta-26f2496093-20240514
 
   pretty-format@3.8.0: {}
 
@@ -7883,7 +7880,7 @@ snapshots:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
-      react-is: 16.13.1
+      react-is: 19.0.0-beta-26f2496093-20240514
 
   proxy-from-env@1.0.0: {}
 
@@ -7912,11 +7909,7 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-is@16.13.1: {}
-
-  react-is@17.0.2: {}
-
-  react-is@18.3.1: {}
+  react-is@19.0.0-beta-26f2496093-20240514: {}
 
   react-remove-scroll-bar@2.3.6(@types/react@18.3.12)(react@18.3.1):
     dependencies:
@@ -7992,7 +7985,7 @@ snapshots:
       lodash: 4.17.21
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-is: 18.3.1
+      react-is: 19.0.0-beta-26f2496093-20240514
       react-smooth: 4.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       recharts-scale: 0.4.5
       tiny-invariant: 1.3.3

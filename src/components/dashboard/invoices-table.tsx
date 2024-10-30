@@ -31,7 +31,7 @@ export default function InvoicesTable({
   });
 
   return (
-    <Table>
+    <Table className="invoices-table">
       <TableHeader>
         <TableRow>
           <TableHead className="w-[100px]">Invoice ID</TableHead>
