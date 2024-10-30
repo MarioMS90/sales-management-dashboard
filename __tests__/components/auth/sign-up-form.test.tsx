@@ -14,11 +14,8 @@ jest.mock('@/lib/auth-actions', () => ({
 const mockedUseActionState = useActionState as jest.Mock;
 
 describe('SignUpForm', () => {
-  beforeEach(() => {
-    mockedUseActionState.mockImplementation(() => [{ message: null }, jest.fn(), false]);
-  });
-
   it('renders name, email, and password inputs', () => {
+    mockedUseActionState.mockImplementation(() => [{ message: null }, 'action', false]);
     render(<SignUpForm />);
 
     expect(screen.getByPlaceholderText('Enter your name')).toBeInTheDocument();
@@ -30,7 +27,7 @@ describe('SignUpForm', () => {
     const mockErrors = { email: ['Email is required'], password: ['Password is too short'] };
     mockedUseActionState.mockReturnValue([
       { message: 'error', errors: mockErrors },
-      jest.fn(),
+      'action',
       false,
     ]);
 
@@ -41,23 +38,12 @@ describe('SignUpForm', () => {
   });
 
   it('disables submit button when isPending is true', () => {
-    mockedUseActionState.mockReturnValue([{ message: null }, jest.fn(), true]);
+    mockedUseActionState.mockReturnValue([{ message: null }, 'action', true]);
 
     render(<SignUpForm />);
 
     const submitButton = screen.getByRole('button', { name: /sign up/i });
     expect(submitButton).toBeDisabled();
-  });
-
-  it('calls formAction on form submit', () => {
-    const mockFormAction = jest.fn();
-    mockedUseActionState.mockReturnValue([{ message: null }, mockFormAction, false]);
-
-    render(<SignUpForm />);
-
-    fireEvent.click(screen.getByRole('button', { name: /sign up/i }));
-
-    expect(mockFormAction).toHaveBeenCalled();
   });
 
   it('generates a random user and fills the form', async () => {

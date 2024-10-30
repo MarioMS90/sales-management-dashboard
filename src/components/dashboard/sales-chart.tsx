@@ -1,8 +1,10 @@
 'use client';
 
+import { TotalSalesByMonth } from '@/lib/data';
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
-export default function SalesChart({ sales }: { sales: any[] }) {
+export default function SalesChart({ sales }: { sales: TotalSalesByMonth[] }) {
+  console.log('sales', sales);
   return (
     <ResponsiveContainer width="100%" height={350}>
       <BarChart data={sales}>
@@ -12,7 +14,7 @@ export default function SalesChart({ sales }: { sales: any[] }) {
           fontSize={12}
           tickLine={false}
           axisLine={false}
-          tickFormatter={value =>
+          tickFormatter={(value: number) =>
             `${value.toLocaleString('en-US', {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
