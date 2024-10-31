@@ -47,7 +47,7 @@ export default function useScrollPagination<T>({
     }
 
     if (limit <= 0) {
-      throw new Error('limit should be greater than 0');
+      throw new Error('useScrollPagination error: Limit should be greater than 0');
     }
 
     const intersectionCallback = (entries: IntersectionObserverEntry[]): void => {
