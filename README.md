@@ -76,4 +76,11 @@ The main folders in the project structure are:
     - **Email**: `user@gmail.com`
     - **Password**: `123456`
 
+6. To run the tests, use the following commands:
+    
+    ```shell
+    pnpm run test
+    pnpm run cypress:open
+    ```
+    
 The `.env.local` file is included in the repository to facilitate testing without additional setup.
