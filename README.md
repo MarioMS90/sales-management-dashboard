@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sales Management Dashboard
 
-## Getting Started
 
-First, run the development server:
+A **Next.js 15** sales management dashboard using PostgreSQL, styled with Tailwind CSS, and deployed on Vercel.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Full documentation:** [Github Wiki](https://github.com/MarioMS90/a-safe-technical-test/wiki/A%E2%80%90Safe-Technical-Test-%E2%80%90-Documentation)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Deployed version**: [Vercel Deployment](https://a-safe-technical-test-roan.vercel.app/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Overview
 
-## Learn More
+The app provides a summary dashboard, a table of invoices, and a table view of sellers, with optimized handling of large datasets. User authentication is managed by **NextAuth.js**, and **Kysely** is used for database interactions.
 
-To learn more about Next.js, take a look at the following resources:
+### Key Technologies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework**: Next.js 15 with App Router.
+- **Database**: PostgreSQL (managed with Kysely).
+- **Authentication**: NextAuth.js v5.
+- **UI**: shadcn/ui components and Tailwind CSS.
+- **Testing**: Cypress and Jest.
+- **Deployment**: Vercel.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Project Structure
 
-## Deploy on Vercel
+The main folders in the project structure are:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Root Folder**:
+	- `__tests__`: Unit tests.
+	- `cypress`: E2E tests.
+	- `public`: Public assets.
+	- `src`: Application logic and source code.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Inside `src` Folder**:
+    - `src/app`: Defines the routing structure, and layouts.
+    - `src/components`: All application components.
+    - `src/components/ui`: For UI components.
+    - `src/hooks`: Custom hooks.
+    - `src/lib`: Server actions, database access functions, and utilities.
+    - `src/schemas`: Zod schemas for validation.
+    - `src/types`: Type definitions.
+
+## Running the Project
+
+1. Ensure **Node.js** (version 16 or above) and **pnpm** are installed on your system.
+    
+    - If not installed, download **Node.js** from [nodejs.org](https://nodejs.org/) and install **pnpm** globally using:
+        
+        ```shell
+        npm install -g pnpm
+        ```
+        
+2. Clone the repository:
+    
+    ```shell
+    git clone https://github.com/MarioMS90/a-safe-technical-test
+    cd a-safe-technical-test
+    ```
+    
+3. Install project dependencies:
+    
+    ```shell
+    pnpm install
+    ```
+    
+4. Start the local development server:
+    
+    ```shell
+    pnpm run dev
+    ```
+    
+5. To reset the database and seed it with new test data, visit: [http://localhost:3000/seed](http://localhost:3000/seed)
+    
+    Default user for login:
+    
+    - **Email**: `user@gmail.com`
+    - **Password**: `123456`
+
+The `.env.local` file is included in the repository to facilitate testing without additional setup.
