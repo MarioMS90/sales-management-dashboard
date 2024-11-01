@@ -32,7 +32,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange>
           {children}
-          <div className="fixed bottom-6 right-6">
+          <div className="fixed right-10 top-6">
             <ThemeToggle />
           </div>
         </ThemeProvider>
