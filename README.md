@@ -3,9 +3,9 @@
 
 A **Next.js 15** sales management dashboard using PostgreSQL, styled with Tailwind CSS, and deployed on Vercel.
 
-**Full documentation:** [Documentation](https://github.com/MarioMS90/a-safe-technical-test/wiki/A%E2%80%90Safe-Technical-Test-%E2%80%90-Documentation)
+**[Full documentation](https://github.com/MarioMS90/a-safe-technical-test/wiki/A%E2%80%90Safe-Technical-Test-%E2%80%90-Documentation)**
 
-**Deployed version**: [Vercel Deployment](https://a-safe-technical-test-roan.vercel.app/)
+**[Deployed version](https://a-safe-technical-test-roan.vercel.app/)**
 
 
 ## Overview
