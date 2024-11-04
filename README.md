@@ -42,7 +42,7 @@ The main folders in the project structure are:
 
 ## Running the Project
 
-1. Ensure **Node.js** (version 18.17 or above) and **pnpm** are installed on your system.
+1. Ensure **Node.js** (version 18.18 or above) and **pnpm** are installed on your system.
     
     - If not installed, download **Node.js** from [nodejs.org](https://nodejs.org/) and install **pnpm** globally using:
         
