@@ -77,9 +77,17 @@ The main folders in the project structure are:
     - **Password**: `123456`
 
 6. To run the tests, use the following commands:
-    
+
+    Unit tests:
     ```shell
     pnpm run test
+    ```
+
+    E2E tests:
+    ```shell
+    pnpm run build && pnpm run start
+    
+    // In a new terminal, open Cypress:
     pnpm run cypress:open
     ```
     
