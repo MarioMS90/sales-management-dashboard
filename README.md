@@ -3,9 +3,9 @@
 
 A **Next.js 15** sales management dashboard using PostgreSQL, styled with Tailwind CSS, and deployed on Vercel.
 
-**Full documentation:** [Github Wiki](https://github.com/MarioMS90/a-safe-technical-test/wiki/A%E2%80%90Safe-Technical-Test-%E2%80%90-Documentation)
+**[Full documentation](https://github.com/MarioMS90/a-safe-technical-test/wiki/A%E2%80%90Safe-Technical-Test-%E2%80%90-Documentation)**
 
-**Deployed version**: [Vercel Deployment](https://a-safe-technical-test-roan.vercel.app/)
+**[Deployed version](https://a-safe-technical-test-roan.vercel.app/)**
 
 
 ## Overview
@@ -42,7 +42,7 @@ The main folders in the project structure are:
 
 ## Running the Project
 
-1. Ensure **Node.js** (version 16 or above) and **pnpm** are installed on your system.
+1. Ensure **Node.js** (version 18.18 or above) and **pnpm** are installed on your system.
     
     - If not installed, download **Node.js** from [nodejs.org](https://nodejs.org/) and install **pnpm** globally using:
         
@@ -76,4 +76,19 @@ The main folders in the project structure are:
     - **Email**: `user@gmail.com`
     - **Password**: `123456`
 
+6. To run the tests, use the following commands:
+
+    Unit tests:
+    ```shell
+    pnpm run test
+    ```
+
+    E2E tests:
+    ```shell
+    pnpm run build && pnpm run start
+    
+    // In a new terminal, open Cypress:
+    pnpm run cypress:open
+    ```
+    
 The `.env.local` file is included in the repository to facilitate testing without additional setup.
