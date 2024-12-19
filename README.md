@@ -54,7 +54,6 @@ The main folders in the project structure are:
     
     ```shell
     git clone https://github.com/MarioMS90/a-safe-technical-test
-    cd a-safe-technical-test
     ```
     
 3. Install project dependencies:
