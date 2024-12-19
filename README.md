@@ -53,7 +53,7 @@ The main folders in the project structure are:
 2. Clone the repository:
     
     ```shell
-    git clone https://github.com/MarioMS90/a-safe-technical-test
+    git clone https://github.com/MarioMS90/sales-management-dashboard
     ```
     
 3. Install project dependencies:
