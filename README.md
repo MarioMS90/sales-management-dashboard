@@ -60,9 +60,7 @@ The main folders in the project structure are:
    pnpm install
    ```
 
-4. Create a Vercel project and a PostgreSQL database:
-   Sign up or log in to Vercel and create a new project.
-   In the "Storage" section of Vercel, create a PostgreSQL database.
+4. Create a project and a PostgreSQL database on Vercel:
    Add the necessary keys to a .env.local file in the root of the project to set up the environment variables.
 
 5. Initialize the database structure and seed data:
