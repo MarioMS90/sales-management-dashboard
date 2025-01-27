@@ -64,8 +64,10 @@ The main folders in the project structure are:
    Sign up or log in to Vercel and create a new project.
    In the "Storage" section of Vercel, create a PostgreSQL database.
    Add the necessary keys to a .env.local file in the root of the project to set up the environment variables.
+
 5. Initialize the database structure and seed data:
    Visit http://localhost:3000/seed to create the database tables and populate them with sample data.
+
 6. Start the local development server:
 
    ```shell
